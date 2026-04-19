@@ -401,7 +401,7 @@ export default function CleroLanding() {
               key={m.name}
               style={{
                 background: m.active ? dark : gray,
-                color: m.active ? "#fff" : "#0097e3 ",
+                color: m.active ? "#fff" : "dark",
                 borderRadius: 20,
                 padding: "32px 24px 28px",
               }}
