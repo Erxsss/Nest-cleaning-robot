@@ -306,9 +306,8 @@ export default function CleroLanding() {
             marginBottom: 48,
           }}
         >
-          Clero is a smart cleaning robot that can operate automatically and be
-          controlled remotely via phone, using motors and a water pump to
-          perform thorough indoor cleaning.
+          Клэро нь автомат болон гар утаснаас удирдах боломжтой, мотор болон
+          усны насос ашиглан цэвэрлэгээ хийдэг ухаалаг робот юм.
         </p>
 
         {/* dirt-vs-clean strip */}
