@@ -39,9 +39,24 @@ const techItems = [
 ];
 
 const team = [
-  { name: "B.Erkhes", role: "Code, Website & Design", active: true },
-  { name: "U.Nyambayar", role: "Design, Code & Documents", active: false },
-  { name: "A.Molor", role: "Code, Design & Website", active: false },
+  {
+    name: "B.Erkhes",
+    role: "Code, Website & Design",
+    active: true,
+    img: "https://i.pinimg.com/736x/7d/ee/59/7dee59c10775112292a74d61cc63bd07.jpg",
+  },
+  {
+    name: "U.Nyambayar",
+    role: "Design, Code & Documents",
+    active: false,
+    img: "https://i.pinimg.com/1200x/38/95/49/389549e074b5e4c4b30b7470f4da37c0.jpg",
+  },
+  {
+    name: "A.Molor",
+    role: "Code, Design & Website",
+    active: false,
+    img: "https://i.pinimg.com/736x/b8/e7/ee/b8e7eeb8e24644ac8052bf51805d25cd.jpg",
+  },
 ];
 
 export default function CleroLanding() {
@@ -404,7 +419,7 @@ export default function CleroLanding() {
                   fontSize: "3rem",
                 }}
               >
-                👤
+                <img src={m.img} alt="" className="rounded-2xl" />
               </div>
               <div
                 style={{
