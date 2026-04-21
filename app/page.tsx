@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 const cyan = "#00D4FF";
 const green = "#00FF88";
 const dark = "#111111";
@@ -43,23 +45,48 @@ const team = [
     name: "B.Erkhes",
     role: "Code, Website & Design",
     active: true,
-    img: "https://i.pinimg.com/736x/7d/ee/59/7dee59c10775112292a74d61cc63bd07.jpg",
+    img: "https://i.pinimg.com/736x/0a/21/26/0a2126d2e6f3bdd4f8ef6e0ccfbd9c1d.jpg",
   },
   {
     name: "U.Nyambayar",
     role: "Design, Code & Documents",
     active: false,
-    img: "https://i.pinimg.com/1200x/38/95/49/389549e074b5e4c4b30b7470f4da37c0.jpg",
+    img: "https://i.pinimg.com/736x/0a/21/26/0a2126d2e6f3bdd4f8ef6e0ccfbd9c1d.jpg",
   },
   {
     name: "A.Molor",
     role: "Code, Design & Website",
     active: false,
-    img: "https://i.pinimg.com/736x/b8/e7/ee/b8e7eeb8e24644ac8052bf51805d25cd.jpg",
+    img: "https://i.pinimg.com/736x/0a/21/26/0a2126d2e6f3bdd4f8ef6e0ccfbd9c1d.jpg",
   },
 ];
 
+type Message = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type Input = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 export default function CleroLanding() {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState<Input>({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const add = () => {
+    if (!input.name && !input.email && !input.message) return;
+    setMessages((prev) => [...prev, { ...input }]);
+    setInput({ name: "", email: "", message: "" });
+  };
+
   return (
     <div
       style={{
@@ -75,7 +102,6 @@ export default function CleroLanding() {
         rel="stylesheet"
       />
 
-      {/* Only keyframe animations need a style tag — can't be inlined */}
       <style>{`
         @keyframes floatRobot {
           0%,100% { transform: translateY(0px) rotate(-2deg); }
@@ -125,7 +151,7 @@ export default function CleroLanding() {
             padding: 0,
           }}
         >
-          {["About", "Team", "Tech"].map((link) => (
+          {["About", "Team", "Tech", "Explore"].map((link) => (
             <li key={link}>
               <a
                 href={`#${link.toLowerCase()}`}
@@ -170,7 +196,6 @@ export default function CleroLanding() {
           overflow: "hidden",
         }}
       >
-        {/* glow blob */}
         <div
           style={{
             position: "absolute",
@@ -194,7 +219,6 @@ export default function CleroLanding() {
             gap: 40,
           }}
         >
-          {/* Robot */}
           <div
             style={{
               flex: "0 0 45%",
@@ -208,7 +232,6 @@ export default function CleroLanding() {
             />
           </div>
 
-          {/* Copy */}
           <div style={{ flex: 1 }}>
             <p style={{ fontSize: "1.2rem", color: "#444", marginBottom: 8 }}>
               Dont waste time
@@ -325,7 +348,6 @@ export default function CleroLanding() {
           усны насос ашиглан цэвэрлэгээ хийдэг ухаалаг робот юм.
         </p>
 
-        {/* dirt-vs-clean strip */}
         <div
           style={{
             position: "relative",
@@ -401,7 +423,7 @@ export default function CleroLanding() {
               key={m.name}
               style={{
                 background: m.active ? dark : gray,
-                color: m.active ? "#fff" : "dark",
+                color: m.active ? "#fff" : dark,
                 borderRadius: 20,
                 padding: "32px 24px 28px",
               }}
@@ -413,13 +435,14 @@ export default function CleroLanding() {
                   background: m.active ? "#2a2a2a" : "#e0e0e0",
                   borderRadius: 16,
                   marginBottom: 24,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "3rem",
+                  overflow: "hidden",
                 }}
               >
-                <img src={m.img} alt="" className="rounded-2xl" />
+                <img
+                  src={m.img}
+                  alt={m.name}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
               </div>
               <div
                 style={{
@@ -477,8 +500,6 @@ export default function CleroLanding() {
             margin: "100px",
           }}
         >
-          {/* Header card */}
-
           {techItems.map((item) => (
             <div
               key={item.label}
@@ -522,6 +543,575 @@ export default function CleroLanding() {
               </span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── EXPLORE THE PROJECT ── */}
+      <section
+        id="explore"
+        style={{ padding: "100px 48px", background: "#fff" }}
+      >
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 64 }}>
+            <p
+              style={{
+                fontSize: "0.85rem",
+                fontWeight: 600,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: cyan,
+                marginBottom: 12,
+              }}
+            >
+              Демо, код, баримт бичиг
+            </p>
+            <h2
+              style={{
+                fontFamily: "'Syne',sans-serif",
+                fontSize: "clamp(2.4rem,5vw,3.8rem)",
+                fontWeight: 800,
+                letterSpacing: "-0.03em",
+                margin: 0,
+              }}
+            >
+              Төслийн дэлгэрэнгүй
+            </h2>
+            <p
+              style={{
+                marginTop: 16,
+                fontSize: "1.05rem",
+                color: "#555",
+                maxWidth: 520,
+                margin: "16px auto 0",
+                lineHeight: 1.7,
+              }}
+            >
+              Манай төслийн бүх материал — схем, код — бүгд нээлттэй. Та судалж,
+              ашиглаж, хөгжүүлж болно.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3,1fr)",
+              gap: 24,
+            }}
+          >
+            {/* ── DOCS card ── */}
+            <a
+              href="https://docs.google.com/document/d/1qNOlmlPniCOiaoXbCDGlBizu9pU-jPYnZBmJGvOtfR8/edit?usp=sharing"
+              target="_blank"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div
+                style={{
+                  border: "1.5px solid #e8e8e8",
+                  borderRadius: 24,
+                  overflow: "hidden",
+                  background: "#fff",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                }}
+              >
+                <div
+                  style={{
+                    background: "#f7f7f7",
+                    height: 200,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderBottom: "1.5px solid #e8e8e8",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 130,
+                      background: "#fff",
+                      borderRadius: 8,
+                      boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+                      padding: "16px 14px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "60%",
+                        height: 6,
+                        background: "#111",
+                        borderRadius: 3,
+                        marginBottom: 10,
+                      }}
+                    />
+                    <div
+                      style={{
+                        width: "100%",
+                        height: 3,
+                        background: "#ddd",
+                        borderRadius: 2,
+                        marginBottom: 5,
+                      }}
+                    />
+                    <div
+                      style={{
+                        width: "85%",
+                        height: 3,
+                        background: "#ddd",
+                        borderRadius: 2,
+                        marginBottom: 5,
+                      }}
+                    />
+                    <div
+                      style={{
+                        width: "90%",
+                        height: 3,
+                        background: "#ddd",
+                        borderRadius: 2,
+                        marginBottom: 5,
+                      }}
+                    />
+                    <div
+                      style={{
+                        width: "70%",
+                        height: 3,
+                        background: "#ddd",
+                        borderRadius: 2,
+                        marginBottom: 14,
+                      }}
+                    />
+                    <div
+                      style={{
+                        width: "55%",
+                        height: 5,
+                        background: "#111",
+                        borderRadius: 3,
+                        marginBottom: 8,
+                      }}
+                    />
+                    <div
+                      style={{
+                        width: "100%",
+                        height: 3,
+                        background: "#ddd",
+                        borderRadius: 2,
+                        marginBottom: 5,
+                      }}
+                    />
+                    <div
+                      style={{
+                        width: "80%",
+                        height: 3,
+                        background: "#ddd",
+                        borderRadius: 2,
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 14,
+                      right: 14,
+                      background: dark,
+                      color: "#fff",
+                      fontSize: "0.7rem",
+                      fontWeight: 700,
+                      padding: "4px 10px",
+                      borderRadius: 20,
+                    }}
+                  >
+                    DOCX
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    padding: "28px 28px 32px",
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      marginBottom: 14,
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 36,
+                        height: 36,
+                        background: "#f0f0f0",
+                        borderRadius: 10,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "1.1rem",
+                      }}
+                    >
+                      📄
+                    </div>
+                    <span
+                      style={{
+                        fontFamily: "'Syne',sans-serif",
+                        fontSize: "1.1rem",
+                        fontWeight: 800,
+                      }}
+                    >
+                      Documentation
+                    </span>
+                  </div>
+                  <p
+                    style={{
+                      fontSize: "0.9rem",
+                      color: "#666",
+                      lineHeight: 1.7,
+                      margin: 0,
+                      flex: 1,
+                    }}
+                  >
+                    Төслийн бүрэн тайлан — төхөөрөмжийн үзүүлэлт, хэлхээний
+                    зураг, усны насос, моторын удирдлага, аппын Bluetooth
+                    холболт.
+                  </p>
+                  <div
+                    style={{
+                      marginTop: 24,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      fontSize: "0.82rem",
+                      color: cyan,
+                      fontWeight: 700,
+                    }}
+                  >
+                    <span>Read the docs</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            {/* ── PPT card ── */}
+            <a
+              href="https://canva.link/2o4040ete9ocn20"
+              target="_blank"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div
+                style={{
+                  border: "1.5px solid #e8e8e8",
+                  borderRadius: 24,
+                  overflow: "hidden",
+                  background: "#fff",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                }}
+              >
+                <div
+                  style={{
+                    background: dark,
+                    height: 200,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "relative",
+                  }}
+                >
+                  <div style={{ textAlign: "center" }}>
+                    <div
+                      style={{
+                        fontFamily: "'Syne',sans-serif",
+                        fontSize: "1.8rem",
+                        fontWeight: 800,
+                        color: "#fff",
+                        letterSpacing: "-0.02em",
+                      }}
+                    >
+                      CLERO
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "0.65rem",
+                        color: "#888",
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        marginTop: 4,
+                      }}
+                    >
+                      Cleaning robot
+                    </div>
+                    <div
+                      style={{
+                        width: 40,
+                        height: 2,
+                        background: cyan,
+                        borderRadius: 1,
+                        margin: "10px auto 0",
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 14,
+                      right: 14,
+                      background: "#ff6b35",
+                      color: "#fff",
+                      fontSize: "0.7rem",
+                      fontWeight: 700,
+                      padding: "4px 10px",
+                      borderRadius: 20,
+                    }}
+                  >
+                    PPTX
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    padding: "28px 28px 32px",
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      marginBottom: 14,
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 36,
+                        height: 36,
+                        background: "#fff3ef",
+                        borderRadius: 10,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "1.1rem",
+                      }}
+                    >
+                      📊
+                    </div>
+                    <span
+                      style={{
+                        fontFamily: "'Syne',sans-serif",
+                        fontSize: "1.1rem",
+                        fontWeight: 800,
+                      }}
+                    >
+                      Presentation
+                    </span>
+                  </div>
+                  <p
+                    style={{
+                      fontSize: "0.9rem",
+                      color: "#666",
+                      lineHeight: 1.7,
+                      margin: 0,
+                      flex: 1,
+                    }}
+                  >
+                    Сургуулийн demo өдөр ашигласан презентац — асуудал, шийдэл,
+                    ашигласан технологи (өмнө/дараа харьцуулалт).
+                  </p>
+                  <div
+                    style={{
+                      marginTop: 24,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      fontSize: "0.82rem",
+                      color: "#ff6b35",
+                      fontWeight: 700,
+                    }}
+                  >
+                    <span>View slides</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            {/* ── GITHUB card ── */}
+            <a
+              href="https://github.com/Erxsss/Nest-cleaning-robot"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div
+                style={{
+                  border: "1.5px solid #e8e8e8",
+                  borderRadius: 24,
+                  overflow: "hidden",
+                  background: "#fff",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                }}
+              >
+                <div
+                  style={{
+                    background: "#0d1117",
+                    height: 200,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    padding: "0 24px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: "0.75rem",
+                      color: "#58a6ff",
+                      fontFamily: "monospace",
+                      marginBottom: 8,
+                    }}
+                  >
+                    Erxsss / Nest-cleaning-robot
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "'Syne',sans-serif",
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                      color: "#fff",
+                      marginBottom: 16,
+                    }}
+                  >
+                    Nest-cleaning-robot
+                  </div>
+                  <div style={{ display: "flex", gap: 20 }}>
+                    {[
+                      ["⭐", "Stars", "0"],
+                      ["🍴", "Forks", "0"],
+                      ["👁️", "Watch", "1"],
+                    ].map(([icon, label, val]) => (
+                      <div key={label} style={{ textAlign: "center" }}>
+                        <div style={{ fontSize: "0.65rem", color: "#888" }}>
+                          {icon} {label}
+                        </div>
+                        <div
+                          style={{
+                            fontSize: "0.9rem",
+                            fontWeight: 700,
+                            color: "#ccc",
+                          }}
+                        >
+                          {val}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: 3,
+                      background:
+                        "linear-gradient(90deg,#58a6ff,#3fb950,#58a6ff)",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 14,
+                      right: 14,
+                      background: "#238636",
+                      color: "#fff",
+                      fontSize: "0.7rem",
+                      fontWeight: 700,
+                      padding: "4px 10px",
+                      borderRadius: 20,
+                    }}
+                  >
+                    PUBLIC
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    padding: "28px 28px 32px",
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      marginBottom: 14,
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 36,
+                        height: 36,
+                        background: "#f0f0f0",
+                        borderRadius: 10,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "1.1rem",
+                      }}
+                    >
+                      🐙
+                    </div>
+                    <span
+                      style={{
+                        fontFamily: "'Syne',sans-serif",
+                        fontSize: "1.1rem",
+                        fontWeight: 800,
+                      }}
+                    >
+                      GitHub Repo
+                    </span>
+                  </div>
+                  <p
+                    style={{
+                      fontSize: "0.9rem",
+                      color: "#666",
+                      lineHeight: 1.7,
+                      margin: 0,
+                      flex: 1,
+                    }}
+                  >
+                    Бүх код нээлттэй — Arduino код, веб сайт бүгд багтсан. Хуулж
+                    авч, моторын логикыг судалж, өөрөө сайжруулж болно.
+                  </p>
+                  <div
+                    style={{
+                      marginTop: 24,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      fontSize: "0.82rem",
+                      color: "#238636",
+                      fontWeight: 700,
+                    }}
+                  >
+                    <span>View on GitHub</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -579,38 +1169,71 @@ export default function CleroLanding() {
             Contact Us
           </p>
 
-          {[
-            { label: "Contact Name:", type: "text", placeholder: "Your name" },
-            { label: "Mail:", type: "email", placeholder: "your@email.com" },
-          ].map((f) => (
-            <div key={f.label} style={{ marginBottom: 20 }}>
-              <label
-                style={{
-                  fontSize: "0.9rem",
-                  color: "#bbb",
-                  display: "block",
-                  marginBottom: 8,
-                }}
-              >
-                {f.label}
-              </label>
-              <input
-                type={f.type}
-                placeholder={f.placeholder}
-                style={{
-                  width: "100%",
-                  background: "#2c2c2c",
-                  border: "1px solid #3a3a3a",
-                  borderRadius: 10,
-                  padding: "12px 16px",
-                  color: "#fff",
-                  fontSize: "0.95rem",
-                  outline: "none",
-                }}
-              />
-            </div>
-          ))}
+          {/* Name */}
+          <div style={{ marginBottom: 20 }}>
+            <label
+              style={{
+                fontSize: "0.9rem",
+                color: "#bbb",
+                display: "block",
+                marginBottom: 8,
+              }}
+            >
+              Contact Name:
+            </label>
+            <input
+              type="text"
+              placeholder="Your name"
+              value={input.name}
+              onChange={(e) =>
+                setInput((prev) => ({ ...prev, name: e.target.value }))
+              }
+              style={{
+                width: "100%",
+                background: "#2c2c2c",
+                border: "1px solid #3a3a3a",
+                borderRadius: 10,
+                padding: "12px 16px",
+                color: "#fff",
+                fontSize: "0.95rem",
+                outline: "none",
+              }}
+            />
+          </div>
 
+          {/* Email */}
+          <div style={{ marginBottom: 20 }}>
+            <label
+              style={{
+                fontSize: "0.9rem",
+                color: "#bbb",
+                display: "block",
+                marginBottom: 8,
+              }}
+            >
+              Mail:
+            </label>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              value={input.email}
+              onChange={(e) =>
+                setInput((prev) => ({ ...prev, email: e.target.value }))
+              }
+              style={{
+                width: "100%",
+                background: "#2c2c2c",
+                border: "1px solid #3a3a3a",
+                borderRadius: 10,
+                padding: "12px 16px",
+                color: "#fff",
+                fontSize: "0.95rem",
+                outline: "none",
+              }}
+            />
+          </div>
+
+          {/* Message */}
           <div style={{ marginBottom: 20 }}>
             <label
               style={{
@@ -624,6 +1247,10 @@ export default function CleroLanding() {
             </label>
             <textarea
               placeholder="Your message..."
+              value={input.message}
+              onChange={(e) =>
+                setInput((prev) => ({ ...prev, message: e.target.value }))
+              }
               style={{
                 width: "100%",
                 background: "#2c2c2c",
@@ -638,8 +1265,8 @@ export default function CleroLanding() {
               }}
             />
           </div>
-
           <button
+            onClick={add}
             style={{
               background: cyan,
               color: dark,
@@ -653,6 +1280,61 @@ export default function CleroLanding() {
           >
             Send Now
           </button>
+
+          {/* ── MESSAGES LIST ── */}
+          {messages.length > 0 && (
+            <div style={{ marginTop: 48 }}>
+              <p
+                style={{
+                  color: cyan,
+                  fontWeight: 600,
+                  fontSize: "0.9rem",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  marginBottom: 16,
+                }}
+              >
+                Messages ({messages.length})
+              </p>
+              {messages.map((m, i) => (
+                <div
+                  key={i}
+                  style={{
+                    background: "#2a2a2a",
+                    border: "1px solid #3a3a3a",
+                    borderRadius: 12,
+                    padding: "16px 20px",
+                    marginBottom: 12,
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      marginBottom: 8,
+                    }}
+                  >
+                    <span style={{ fontWeight: 600, fontSize: "0.95rem" }}>
+                      {m.name}
+                    </span>
+                    <span style={{ fontSize: "0.8rem", color: "#888" }}>
+                      {m.email}
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "0.9rem",
+                      color: "#bbb",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {m.message}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </footer>
     </div>
