@@ -277,7 +277,7 @@ export default function CleroLanding() {
                   color: green,
                 }}
               >
-                Strong
+                Useful
               </span>
             </div>
             <a
