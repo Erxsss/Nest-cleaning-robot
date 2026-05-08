@@ -226,10 +226,10 @@ export default function CleroLanding() {
             }}
           >
             <img
-              src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/image-removebg-preview.png"
-              alt="CLERO Robot"
-              style={{ width: "100%", maxWidth: 600, height: "600px", objectFit: "contain" }}
-            />
+  src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/image-removebg-preview.png"
+  alt="CLERO Robot"
+  style={{ width: "100%", maxWidth: 900, height: "800px", objectFit: "contain" }}
+/>
           </div>
 
           <div style={{ flex: 1 }}>
