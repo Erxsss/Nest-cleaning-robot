@@ -45,19 +45,19 @@ const team = [
     name: "B.Erkhes",
     role: "Code, Website & Design",
     active: true,
-    img: "https://i.pinimg.com/736x/0a/21/26/0a2126d2e6f3bdd4f8ef6e0ccfbd9c1d.jpg",
+    img: "https://scontent.fuln6-1.fna.fbcdn.net/v/t1.15752-9/689005156_842155068369386_5131505476592522390_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=fc17b8&efg=eyJxZV9ncm91cHMiOlsiaWdkX2Jlc3RfZWZmb3J0X2ltYWdlOmNvbnRyb2wiXX0%3D&_nc_ohc=2R4KpdoE_C4Q7kNvwG2gG59&_nc_oc=Ado1qt8Wce-e09ateRkYJaS-NoiInk-56qDM32ZHVKF2tgEFbXjoQoEobvtM5a_oiwdPZbft0biG-YcmLLS6zUfN&_nc_zt=23&_nc_ht=scontent.fuln6-1.fna&_nc_ss=7b6a8&oh=03_Q7cD5QEw6ChF5IqyEZhpS5Tc_qSIS6RI60gWoWqjbi3Ybd6owg&oe=6A258547",
   },
   {
     name: "U.Nyambayar",
     role: "Design, Code & Documents",
     active: false,
-    img: "https://i.pinimg.com/736x/0a/21/26/0a2126d2e6f3bdd4f8ef6e0ccfbd9c1d.jpg",
+    img: "https://scontent.fuln6-2.fna.fbcdn.net/v/t1.15752-9/676812371_1522929746108909_8235017470180990514_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=fc17b8&efg=eyJxZV9ncm91cHMiOlsiaWdkX2Jlc3RfZWZmb3J0X2ltYWdlOmNvbnRyb2wiXX0%3D&_nc_ohc=bmosLu57a-cQ7kNvwF4hdXp&_nc_oc=AdoPsRjlQfZRsLxcWiryuoz69id-JO6NlXPJYDSgpakobRy5vAL-qy14ohOKir_2gTSTTqq4s-4ZHkF06ovE1R-W&_nc_zt=23&_nc_ht=scontent.fuln6-2.fna&_nc_ss=7b6a8&oh=03_Q7cD5QEgJIQxKJ72MMs7_Lx9klLBARwTtdd52JQoV3bcp6TBfg&oe=6A25891E",
   },
   {
     name: "A.Molor",
     role: "Code, Design & Website",
     active: false,
-    img: "https://i.pinimg.com/736x/0a/21/26/0a2126d2e6f3bdd4f8ef6e0ccfbd9c1d.jpg",
+    img: "https://scontent.fuln6-2.fna.fbcdn.net/v/t1.15752-9/672229549_1738471780467654_7385171207334296357_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=fc17b8&efg=eyJxZV9ncm91cHMiOlsiaWdkX2Jlc3RfZWZmb3J0X2ltYWdlOmNvbnRyb2wiXX0%3D&_nc_ohc=dS1LR3jiV0gQ7kNvwGJjwC-&_nc_oc=AdpQ6a0aOTsXtABiWAoQIHn7SYfqEZRc7GNJMmslULOoWVFD9J_5BG8RqPVcXWdY5NKzXK6u9xWQO8Kaznb1spae&_nc_zt=23&_nc_ht=scontent.fuln6-2.fna&_nc_ss=7b6a8&oh=03_Q7cD5QEBWSwTjbQ74wxCHS1QQIDG6T76juzGMTMk6Rkk76YgDg&oe=6A2569AC",
   },
 ];
 
@@ -226,10 +226,15 @@ export default function CleroLanding() {
             }}
           >
             <img
-  src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/image-removebg-preview.png"
-  alt="CLERO Robot"
-  style={{ width: "100%", maxWidth: 900, height: "800px", objectFit: "contain" }}
-/>
+              src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/image-removebg-preview.png"
+              alt="CLERO Robot"
+              style={{
+                width: "100%",
+                maxWidth: 900,
+                height: "800px",
+                objectFit: "contain",
+              }}
+            />
           </div>
 
           <div style={{ flex: 1 }}>
@@ -269,16 +274,6 @@ export default function CleroLanding() {
               }}
             >
               <span>Indoor cleaning robot</span>
-              <span
-                style={{
-                  fontFamily: "'Syne',sans-serif",
-                  fontSize: "1.6rem",
-                  fontWeight: 700,
-                  color: green,
-                }}
-              >
-                Useful
-              </span>
             </div>
             <a
               href="#contact"
@@ -349,41 +344,42 @@ export default function CleroLanding() {
         </p>
 
         <div
-  style={{
-    position: "relative",
-    display: "flex",
-    alignItems: "center",
-    width: "100%",
-    maxWidth: 800,
-    borderRadius: 24,
-    overflow: "hidden",
-    height: 220,
-    background: "#f0f0f0", // base color
-  }}
->
-  {/* Full background gradient from left to right */}
-  <div
-    style={{
-      position: "absolute",
-      inset: 0,
-      background: "linear-gradient(90deg, #f0f0f0 0%, #f0f0f0 40%, #e8d5bc 70%, #c8a882 100%)",
-    }}
-  />
+          style={{
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: 800,
+            borderRadius: 24,
+            overflow: "hidden",
+            height: 220,
+            background: "#f0f0f0", // base color
+          }}
+        >
+          {/* Full background gradient from left to right */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(90deg, #f0f0f0 0%, #f0f0f0 40%, #e8d5bc 70%, #c8a882 100%)",
+            }}
+          />
 
-  {/* Optional: subtle shadow under the image for depth */}
-  <img
-    src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/Gemini_Generated_Image_tnon8ztnon8ztnon-removebg-preview%20%281%29.png"
-    alt="CLERO top view"
-    style={{
-      height: 180,
-      objectFit: "contain",
-      position: "absolute",
-      left: "50%",
-      transform: "translateX(-50%)",
-      zIndex: 2,
-    }}
-  />
-</div>
+          {/* Optional: subtle shadow under the image for depth */}
+          <img
+            src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/Gemini_Generated_Image_tnon8ztnon8ztnon-removebg-preview%20%281%29.png"
+            alt="CLERO top view"
+            style={{
+              height: 180,
+              objectFit: "contain",
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 2,
+            }}
+          />
+        </div>
       </section>
 
       {/* ── TEAM ── */}
