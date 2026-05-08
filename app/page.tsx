@@ -349,49 +349,41 @@ export default function CleroLanding() {
         </p>
 
         <div
-          style={{
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            maxWidth: 800,
-            borderRadius: 24,
-            overflow: "hidden",
-            height: 220,
-            background: gray,
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              width: "48%",
-              height: "100%",
-              background: "#f0f0f0",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              right: 0,
-              width: "55%",
-              height: "100%",
-              background: "linear-gradient(90deg,transparent,#c8a882)",
-            }}
-          />
-          <img
-            src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/pudu-mt1-vac-top-view_2400x2400-removebg-preview.png"
-            alt="CLERO top view"
-            style={{
-              height: 180,
-              objectFit: "contain",
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: 2,
-            }}
-          />
-        </div>
+  style={{
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    width: "100%",
+    maxWidth: 800,
+    borderRadius: 24,
+    overflow: "hidden",
+    height: 220,
+    background: "#f0f0f0", // base color
+  }}
+>
+  {/* Full background gradient from left to right */}
+  <div
+    style={{
+      position: "absolute",
+      inset: 0,
+      background: "linear-gradient(90deg, #f0f0f0 0%, #f0f0f0 40%, #e8d5bc 70%, #c8a882 100%)",
+    }}
+  />
+
+  {/* Optional: subtle shadow under the image for depth */}
+  <img
+    src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/Gemini_Generated_Image_tnon8ztnon8ztnon-removebg-preview%20%281%29.png"
+    alt="CLERO top view"
+    style={{
+      height: 180,
+      objectFit: "contain",
+      position: "absolute",
+      left: "50%",
+      transform: "translateX(-50%)",
+      zIndex: 2,
+    }}
+  />
+</div>
       </section>
 
       {/* ── TEAM ── */}
