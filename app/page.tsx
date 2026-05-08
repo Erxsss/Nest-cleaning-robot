@@ -226,7 +226,7 @@ export default function CleroLanding() {
             }}
           >
             <img
-              src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/pudu-cc1-grey-green-1_1200x1200-removebg-preview.png"
+              src="https://zoxowmwtwran1uwo.public.blob.vercel-storage.com/image-removebg-preview.png"
               alt="CLERO Robot"
               style={{ width: "100%", maxWidth: 480, objectFit: "contain" }}
             />
